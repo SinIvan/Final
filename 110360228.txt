@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+char op[5] = { '#', '+', '-', '*', '/', };
+float cal(float x, float y, int op)
+{
+	switch (op)
+	{
+	case 1: return x + y;
+	case 2: return x - y;
+	case 3: return x * y;
+	case 4: return x / y;
+	default: return 0.0;
+	}
+}
+
+float calculate_mode11(float a, float b, float c, float d, int op1, int op2, int op3)
+{
+	float r1, r2, r3;
+	r1 = cal(a, b, op1);
+	r2 = cal(r1, c, op2);
+	r3 = cal(r2, d, op3);
+	return r3;
+}
+
+float calculate_mode12(float a, float b, float c, float d, int op1, int op2, int op3)
+{
+	float r1, r2, r3;
+	r1 = cal(b, c, op2);
+	r2 = cal(a, r1, op1);
+	r3 = cal(r2, d, op3);
+	return r3;
+}
+
+float calculate_mode13(float a, float b, float c, float d, int op1, int op2, int op3)
+{
+	float r1, r2, r3;
+	r1 = cal(c, d, op3);
+	r2 = cal(b, r1, op2);
+	r3 = cal(a, r2, op1);
+	return r3;
+}
+
+float calculate_mode14(float a, float b, float c, float d, int op1, int op2, int op3)
+{
+	float r1, r2, r3;
+	r1 = cal(b, c, op2);
+	r2 = cal(r1, d, op3);
+	r3 = cal(a, r2, op1);
+	return r3;
+}
+
+float calculate_mode15(float a, float b, float c, float d, int op1, int op2, int op3)
+{
+	float r1, r2, r3;
+	r1 = cal(a, b, op1);
+	r2 = cal(c, d, op3);
+	r3 = cal(r1, r2, op2);
+	return r3;
+}
